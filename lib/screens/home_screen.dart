@@ -1,6 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../util/text_show_up.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -27,9 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hey there'),
-      ),
       body: InkWell(
         onTap: () {
           generateRandomColor();
@@ -37,8 +37,16 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           color: generatedColor,
           child: Center(
-            child: Text(
-              'Hey there \n$generatedColor',
+            child: TextShowUp(
+              child: Text(
+                'Hey there',
+                style: GoogleFonts.oswald(
+                  textStyle: Theme.of(context).textTheme.headline5,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              delay: const Duration(seconds: 1).inMilliseconds,
             ),
           ),
         ),
